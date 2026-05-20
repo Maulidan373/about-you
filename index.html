@@ -216,6 +216,7 @@
             font-size: 1.8rem;
             background: linear-gradient(to right, var(--pink-pastel), var(--purple-soft));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
             font-weight: bold;
@@ -367,6 +368,7 @@
             font-size: 3rem;
             background: linear-gradient(135deg, var(--pink-pastel), #fff, var(--peach-soft));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 15px;
             text-shadow: var(--neon-glow);
@@ -423,6 +425,7 @@
             margin-bottom: 15px;
             background: linear-gradient(to right, #fff, var(--pink-pastel), #fff);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .hero-subtitle {
@@ -1262,21 +1265,21 @@
         <img src="cbg.jpg" alt="Memory 1">
         <div class="gallery-overlay"><div class="gallery-text">Very beautiful ❤️</div></div>
     </div>
-</div>
 
-<div class="gallery-item" onclick="openLightbox('kok.jpg')">
-    <img src="kok.jpg" alt="Memory 2">
-    <div class="gallery-overlay"><div class="gallery-text">Sangat Indah✨</div></div>
-</div>
+    <div class="gallery-item" onclick="openLightbox('kok.jpg')">
+        <img src="kok.jpg" alt="Memory 2">
+        <div class="gallery-overlay"><div class="gallery-text">Sangat Indah✨</div></div>
+    </div>
 
-           <div class="gallery-item" onclick="openLightbox('pn.jpg')">
-    <img src="pn.jpg" alt="Memory 3">
-    <div class="gallery-overlay"><div class="gallery-text">Favorit 🥰</div></div>
-</div>
+    <div class="gallery-item" onclick="openLightbox('pn.jpg')">
+        <img src="pn.jpg" alt="Memory 3">
+        <div class="gallery-overlay"><div class="gallery-text">Favorit 🥰</div></div>
+    </div>
 
-<div class="gallery-item" onclick="openLightbox('pm.jpg')">
-    <img src="pm.jpg" alt="Memory 4">
-    <div class="gallery-overlay"><div class="gallery-text">Manis🌸</div></div>
+    <div class="gallery-item" onclick="openLightbox('pm.jpg')">
+        <img src="pm.jpg" alt="Memory 4">
+        <div class="gallery-overlay"><div class="gallery-text">Manis🌸</div></div>
+    </div>
 </div>
 
 
@@ -1327,26 +1330,8 @@ aku sayang banget sama kamu ❤️</div>
     <section id="reasons">
         <h2 class="section-title">Alasan Aku Sayang Kamu</h2>
         <div class="section-subtitle">20 dari sejuta hal yang membuatku jatuh cinta padamu (Klik Kartu)</div>
-        <div class="reasons-grid">
-            <script>
-                const reasonsData = [
-                    "Karena senyummu nenangin aku", "Karena kamu selalu ada", "Karena kamu bikin hidup lebih indah", "Karena kamu adalah rumah", "Karena kamu ngerti aku",
-                    "Karena caramu manggil namaku", "Karena kesabaranmu yang luas", "Karena tatapan matamu meneduhkan", "Karena kamu selalu mendukungku", "Karena tawa serumu yang nular",
-                    "Karena caramu peduli hal kecil", "Karena kamu humoris & seru", "Karena bersamamu aku jadi diriku sendiri", "Karena genggaman tanganmu menguatkan", "Karena kamu selalu pendoa terbaikku",
-                    "Karena hatimu yang tulus & lembut", "Karena kamu pendengar yang hebat", "Karena caramu nenangin badai pikiranku", "Karena masa depanku indah bersamamu", "Karena kamu adalah kamu, Yumnaku tercinta"
-                ];
-                for(let i=0; i<20; i++) {
-                    document.write(`
-                        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                            <div class="flip-card-inner">
-                                <div class="card-front">Alasan #${i+1}</div>
-                                <div class="card-back">${reasonsData[i]} ❤️</div>
-                            </div>
-                        </div>
-                    `);
-                }
-            </script>
-        </div>
+        <div class="reasons-grid" id="reasons-container">
+            </div>
     </section>
 
     <section id="playlist">
@@ -1364,24 +1349,22 @@ aku sayang banget sama kamu ❤️</div>
                 </div>
             </div>
             
-<div class="playlist-item" onclick="changeTrack('Somebody\'s Pleasure', 'Aziz Hendra', 'cb.mp3')">
-    <div class="track-left">
-        <div class="track-number">2</div>
-        <div class="track-meta">
-            <h4>Somebody's Pleasure </h4>
-            <p>Aziz Hendra</p>
-        </div>
-    </div>
-</div> 
+            <div class="playlist-item" onclick="changeTrack('Somebody\'s Pleasure', 'Aziz Hendra', 'cb.mp3')">
+                <div class="track-left">
+                    <div class="track-number">2</div>
+                    <div class="track-meta">
+                        <h4>Somebody's Pleasure </h4>
+                        <p>Aziz Hendra</p>
+                    </div>
+                </div>
+            </div> 
 
-
-            
             <div class="playlist-item" onclick="changeTrack('You & I', 'One Direction', 'gs.mp3')">
                 <div class="track-left">
                     <div class="track-number">3</div>
                     <div class="track-meta">
                         <h4>You & I</h4>
-                        <p>One Direction</p></p>
+                        <p>One Direction</p>
                     </div>
                 </div>
             </div>
@@ -1496,7 +1479,6 @@ aku sayang banget sama kamu ❤️</div>
         const visBars = document.querySelectorAll('.vis-bar');
 
         function toggleAudio() {
-            // Cek apakah ada file lagu yang sudah dipilih
             if (!audio.src || audio.src === window.location.href) {
                 alert("Silakan klik / pilih lagu dari daftar Playlist terlebih dahulu di bagian bawah web ya.");
                 return;
@@ -1667,6 +1649,28 @@ aku sayang banget sama kamu ❤️</div>
             link.addEventListener('click', () => navMenu.classList.remove('active'));
         });
 
+        // Setup DOM untuk flip-cards (Alasan Sayang)
+        const reasonsData = [
+            "Karena senyummu nenangin aku", "Karena kamu selalu ada", "Karena kamu bikin hidup lebih indah", "Karena kamu adalah rumah", "Karena kamu ngerti aku",
+            "Karena caramu manggil namaku", "Karena kesabaranmu yang luas", "Karena tatapan matamu meneduhkan", "Karena kamu selalu mendukungku", "Karena tawa serumu yang nular",
+            "Karena caramu peduli hal kecil", "Karena kamu humoris & seru", "Karena bersamamu aku jadi diriku sendiri", "Karena genggaman tanganmu menguatkan", "Karena kamu selalu pendoa terbaikku",
+            "Karena hatimu yang tulus & lembut", "Karena kamu pendengar yang hebat", "Karena caramu nenangin badai pikiranku", "Karena masa depanku indah bersamamu", "Karena kamu adalah kamu, Yumnaku tercinta"
+        ];
+        const reasonsContainer = document.getElementById('reasons-container');
+        let reasonsHTML = '';
+        for(let i=0; i<20; i++) {
+            reasonsHTML += `
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="card-front">Alasan #${i+1}</div>
+                        <div class="card-back">${reasonsData[i]} ❤️</div>
+                    </div>
+                </div>
+            `;
+        }
+        reasonsContainer.innerHTML = reasonsHTML;
+
+        // Observer untuk Animasi
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
         
